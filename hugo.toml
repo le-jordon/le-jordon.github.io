@@ -1,4 +1,4 @@
-baseURL = 'https://example.com/'
+baseURL = 'https://le-jordon.github.io/'
 languageCode = 'en-us'
 title = 'LE_JORDON'
 theme = "mana"
@@ -7,6 +7,7 @@ enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
 buildExpired = false
+
 
 #--- NAVIGATION MENU ---
 [menu]
