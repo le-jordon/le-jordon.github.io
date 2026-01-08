@@ -1,0 +1,64 @@
+baseURL = 'https://example.com/'
+languageCode = 'en-us'
+title = 'LE_JORDON'
+theme = "mana"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+#--- NAVIGATION MENU ---
+[menu]
+  [[menu.main]]
+    identifier = "Posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+
+#--- THEME SPECIFIC PARAMS ---
+[params]
+  # Site description for the metadata
+  description = "About reverse engineering and offensive security research."
+  #author = "Jordon"
+  tags = ["macOS", "Red Teaming", "Injection","Objective-C"]
+  style = "dark" 
+  showReadTime = true
+  [params.avatar]
+    url = "/le-jordon.png"
+  [params.social]
+    github = "https://github.com/le-jordon"
+    linkedin = "https://linkedin.com/in/jordon-hill-248768127/"
+  [params.codeHighlight]
+    darkTheme = "catppuccin-macchiato"   # Theme for dark mode
+    lightTheme = "catppuccin-frappe"     # Theme for light mode
+
+
+#--- MARKDOWN SETTINGS ---
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allows you to use raw HTML in markdown if needed
+
+  [markup.highlight]
+    # The color theme (see below for options)
+    style = "monokai"
+    
+    # Use inline styles (easier, no external CSS file needed)
+    noClasses = false 
+    
+    # Try to auto-detect language if you forget to specify it
+    guessSyntax = true
+    
+    # Add line numbers? (true or false)
+    lineNos = false
+    
+    # Highlight lines inside the code? (e.g., highlighting line 4)
+    hl_Lines = ""
+    
+    # Tab width
+    tabWidth = 4
+
+    
+[outputs]
+  home = ["HTML", "JSON"]

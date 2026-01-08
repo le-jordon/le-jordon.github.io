@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Theme on LE_JORDON</title>
+    <link>http://localhost:1313/tags/theme/</link>
+    <description>Recent content in Theme on LE_JORDON</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Jan 2026 12:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/theme/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Mana</title>
+      <link>http://localhost:1313/posts/getting-started-with-mana/</link>
+      <pubDate>Thu, 08 Jan 2026 12:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/getting-started-with-mana/</guid>
+      <description>&lt;h2 id=&#34;welcome-to-mana&#34;&gt;Welcome to Mana&lt;/h2&gt;&#xA;&lt;p&gt;This is a post testing the &lt;a href=&#34;https://github.com/Livour/hugo-mana-theme&#34;&gt;Mana Theme&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;features-i-am-testing&#34;&gt;Features I am testing:&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Typography:&lt;/strong&gt; Is the font easy to read?&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Code Blocks:&lt;/strong&gt; Does the syntax highlighting work?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Mana is working!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

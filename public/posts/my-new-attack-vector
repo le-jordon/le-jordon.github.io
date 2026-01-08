@@ -1,0 +1,53 @@
+---
+title: "Analyzing Dylib Injection on macOS"
+date: 2026-01-08T12:00:00-05:00
+draft: false
+tags: ["macOS", "Red Teaming", "Injection"]
+author: "Jordon"
+---
+
+Dylib injection remains a classic technique for hooking into running processes on macOS. In this post, we will look at how to force a dynamic library into a target process using `DYLD_INSERT_LIBRARIES`.
+
+## The Vulnerable Target
+
+First, let's identify a target. We are looking for binaries that do not have the **Hardened Runtime** enabled or possess specific entitlements that allow library loading.
+
+You can check entitlements using `codesign`:
+
+```bash
+# Check entitlements of a binary
+codesign -d --entitlements :- /Applications/VulnerableApp.app```
+
+```Objective-C
+
+package main
+
+import (
+    "fmt"
+    "os"
+    "path/filepath"
+)
+
+func findLaunchAgents() ([]string, error) {
+    var agents []string
+    root := "/Library/LaunchAgents"
+
+    err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+        if filepath.Ext(path) == ".plist" {
+            agents = append(agents, path)
+        }
+        return nil
+    })
+
+    if err != nil {
+        return nil, err
+    }
+    return agents, nil
+}
+
+func main() {
+    agents, _ := findLaunchAgents()
+    for _, agent := range agents {
+        fmt.Printf("[*] Found Agent: %s\n", agent)
+    }
+}```

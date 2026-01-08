@@ -1,0 +1,3 @@
+[submodule "themes/mana"]
+	path = themes/mana
+	url = https://github.com/le-jordon/hugo-mana.git
