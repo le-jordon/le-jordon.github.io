@@ -29,7 +29,8 @@
           {{ $avatarUrl := site.Params.avatar.home.url | default site.Params.avatar.url }}
           {{ $avatarAsset := site.Params.avatar.home.assetPath | default site.Params.avatar.assetPath }}
           {{ $enableResize := site.Params.avatar.home.enableResize | default site.Params.avatar.enableResize | default false }}
-
+          {{site.Params.author}}
+          
           {{ if $avatarUrl }}
             <img src="{{ $avatarUrl }}" alt="{{ site.Title }}" class="hero-logo">
           {{ else if $avatarAsset }}
@@ -57,6 +58,19 @@
     <!-- Posts List -->
     <section class="posts-section">
       <h2 class="posts-title">Recent Posts</h2>
+      {{ if site.Params.tags }}
+                    <div class="tag-post-tags">
+                      {{ range site.Params.tags }}
+                        {{ $isCurrentTag := eq . $.Title }}
+                        <a
+                          href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"
+                          class="tag-chip {{ if $isCurrentTag }}tag-chip-active{{ end }}"
+                          onclick="event.stopPropagation();">
+                          {{ . }}
+                        </a>
+                      {{ end }}
+                    </div>
+                  {{ end }}
 
       <div class="posts-list">
         {{ range where site.RegularPages "Type" "posts" | first 10 }}

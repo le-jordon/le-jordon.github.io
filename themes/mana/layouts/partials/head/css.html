@@ -1,4 +1,5 @@
-{{ $themeCss := resources.Get "css/theme.css" | minify | fingerprint }}
+<!-- {{ $themeCss := resources.Get "css/theme.css" | minify | fingerprint }} -->
+{{ $themeCss := resources.Get "css/theme.css" | resources.ExecuteAsTemplate "css/theme.css" . | minify| resources.Fingerprint }}
 <link
   rel="stylesheet"
   href="{{ $themeCss.RelPermalink }}"

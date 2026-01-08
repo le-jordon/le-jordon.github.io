@@ -20,7 +20,7 @@
   <div class="list-container">
     <header class="list-header">
       <h1 class="list-title">
-        <span class="list-title-line2">POSTS</span>
+        <span class="hero-title-line1">POSTS</span>
       </h1>
       {{ if .Description }}
         <p class="list-description">{{ .Description }}</p>
@@ -29,7 +29,7 @@
     </header>
 
     <!-- Filter Controls -->
-    <div class="filter-accordion">
+    <!-- <div class="filter-accordion">
       <button
         class="filter-toggle-btn"
         id="filter-toggle-btn"
@@ -67,7 +67,6 @@
               aria-label="Tag search results"></div>
           </div>
           <div class="filter-tags" id="selected-tags-container">
-            <!-- Selected tags will appear here -->
           </div>
           <div id="all-tags-data" style="display: none;">
             {{ range $uniqueTags }}
@@ -93,7 +92,7 @@
           Clear Filters
         </button>
       </div>
-    </div>
+    </div> -->
 
     <div class="posts-list" id="posts-container">
       {{ range .Paginator.Pages }}
