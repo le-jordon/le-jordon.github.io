@@ -12,14 +12,17 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 :root {
   /* Nebula Glass Color Palette */
-  --bg-deep: #020617; /* Deep Midnight Blue */
-  --accent-primary: #b063e0; /* Primary Purple */
-  --accent-mid-purple: #c485f6; /* Mid Purple */
-  --accent-light-purple: #dbabff; /* Light Purple */
-  --accent-secondary: #00ffff; /* Cyber Cyan */
+  --bg-deep: {{ site.Params.theme.bgDeep | default "#020617" }};
+  
+  /* Primary Accents */
+  --accent-primary: {{ site.Params.theme.accentPrimary | default "#00ff9f" }};
+   --accent-mid: {{ site.Params.theme.accentMidPurple | default "#00b36e" }};
+   --accent-light: {{ site.Params.theme.accentLightPurple | default "#b2ffd9" }};
+  
+  /* Secondary Accents */
+  --accent-secondary: {{ site.Params.theme.accentSecondary | default "#00ffcc" }};
   --glass-surface: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-block: rgb(255, 255, 255);
@@ -27,23 +30,27 @@ html {
   /* Legacy variables for compatibility */
   --bg-primary: var(--bg-deep);
   --bg-secondary: var(--glass-surface);
-  --bg-tertiary: rgba(255, 255, 255, 0.08);
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --accent-hover: #c485f6;
+  --bg-tertiary: {{ site.Params.theme.bgTertiary | default "rgba(255, 255, 255, 0.08)" }};
+  --text-primary: {{ site.Params.theme.textPrimary | default "#f1f5f9" }};
+  --text-secondary: {{ site.Params.theme.textSecondary | default "#cbd5e1" }};
+  --text-muted: {{ site.Params.theme.textMuted | default "#94a3b8" }};
+  --accent-hover: {{ site.Params.theme.accentHover | default "#00ffff" }};
   --border-color: var(--glass-border);
   /* Dark theme rgba values for effects */
-  --accent-primary-rgba-03: rgba(176, 99, 224, 0.3);
-  --accent-primary-rgba-05: rgba(176, 99, 224, 0.5);
-  --accent-light-purple-rgba-01: rgba(219, 171, 255, 0.1);
-  --accent-light-purple-rgba-03: rgba(219, 171, 255, 0.3);
-  --accent-mid-purple-rgba-05: rgba(196, 133, 246, 0.05);
-  --accent-mid-purple-rgba-01: rgba(196, 133, 246, 0.1);
-  --accent-mid-purple-rgba-02: rgba(196, 133, 246, 0.2);
+   /* Dark theme RGBA values for effects (Clean naming) */
+  --accent-primary-rgba-03: {{ site.Params.theme.accentPrimaryRGBA03 | default "rgba(0, 255, 159, 0.3)" }};
+  --accent-primary-rgba-05: {{ site.Params.theme.accentPrimaryRGBA05 | default "rgba(0, 255, 159, 0.5)" }};
+  
+  --accent-light-rgba-01: {{ site.Params.theme.accentLightRGBA01 | default "rgba(178, 255, 217, 0.1)" }};
+  --accent-light-rgba-03: {{ site.Params.theme.accentLightRGBA03 | default "rgba(178, 255, 217, 0.3)" }};
+  
+  --accent-mid-rgba-05: {{ site.Params.theme.accentMidRGBA05 | default "rgba(0, 179, 110, 0.05)" }};
+  --accent-mid-rgba-01: {{ site.Params.theme.accentMidRGBA01 | default "rgba(0, 179, 110, 0.1)" }};
+  --accent-mid-rgba-02: {{ site.Params.theme.accentMidRGBA02 | default "rgba(0, 179, 110, 0.2)" }};
+  
   /* Tag styling for dark theme */
-  --tag-bg: rgba(0, 0, 0, 0.4);
-  --tag-color: var(--accent-light-purple);
+  --tag-bg: {{ site.Params.theme.tagbg | default "rgba(0, 0, 0, 0.4)" }};
+  --tag-color: {{ site.Params.theme.tagcolor | default "#00ffcc" }};
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
@@ -87,47 +94,42 @@ html {
 [data-theme="light"] {
   --bg-primary: #ffffff;
   /* Light theme glassmorphism - minimal white overlay, backdrop blur creates the glassy effect */
-  --glass-surface: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); /* Minimal white overlay - backdrop blur does the work */
-  --glass-border: rgba(
-    196,
-    181,
-    253,
-    0.5
-  ); /* More defined purple-tinted border for better visibility */
-  --glass-block: rgba(255, 255, 255, 0.8);
-  --bg-secondary: var(--glass-surface); /* Use glass-surface for glass effect */
-  --bg-tertiary: rgba(
-    255,
-    255,
-    255,
-    0.25
-  ); /* Slightly more visible for tertiary surfaces */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  /* Light theme purple palette - much darker, more saturated for contrast on light backgrounds */
-  --accent-primary: #6b21a8; /* Very dark purple for primary */
-  --accent-mid-purple: #7c3aed; /* Dark purple for mid */
-  --accent-light-purple: #9333ea; /* Medium-dark purple for light accent */
-  --accent-secondary: #7e22ce;
-  --accent-hover: #7c3aed;
+ --bg-deep: {{ site.Params.theme.bgDeep | default "#ffffff" }};
+  
+  /* Primary Accents */
+  --accent-primary: {{ site.Params.theme.light.accentPrimary | default "#00ff9f" }};
+   --accent-mid: {{ site.Params.theme.light.accentMid | default "#00b36e" }};
+   --accent-light: {{ site.Params.theme.light.accentLight | default "#b2ffd9" }};
+  
+  /* Secondary Accents */
+  --accent-secondary: {{ site.Params.theme.light.accentSecondary | default "#00ffcc" }};
+  --glass-surface: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-block: rgb(255, 255, 255);
+
+  /* Legacy variables for compatibility */
+  --bg-primary: var(--bg-deep);
+  --bg-secondary: var(--glass-surface);
+  --bg-tertiary: {{ site.Params.theme.light.bgTertiary | default "rgba(255, 255, 255, 0.08)" }};
+  --text-primary: {{ site.Params.theme.light.textPrimary | default "#0f172a" }};
+  --text-secondary: {{ site.Params.theme.light.textSecondary | default "#475569" }};
+  --text-muted: {{ site.Params.theme.light.textMuted | default "#64748b" }};
+  --accent-hover: {{ site.Params.theme.light.accentHover | default "#7c3aed" }};
   --border-color: var(--glass-border);
-  /* Light theme rgba values for effects - darker purples for better contrast */
-  --accent-primary-rgba-03: rgba(107, 33, 168, 0.3);
-  --accent-primary-rgba-05: rgba(107, 33, 168, 0.5);
-  --accent-light-purple-rgba-01: rgba(147, 51, 234, 0.1);
-  --accent-light-purple-rgba-03: rgba(147, 51, 234, 0.3);
-  --accent-mid-purple-rgba-05: rgba(124, 58, 237, 0.05);
-  --accent-mid-purple-rgba-01: rgba(124, 58, 237, 0.1);
-  --accent-mid-purple-rgba-02: rgba(124, 58, 237, 0.2);
+  /* Dark theme rgba values for effects */
+   /* Dark theme RGBA values for effects (Clean naming) */
+  --accent-primary-rgba-03: {{ site.Params.theme.light.accentPrimaryRGBA03 | default "rgba(0, 255, 159, 0.3)" }};
+  --accent-primary-rgba-05: {{ site.Params.theme.light.accentPrimaryRGBA05 | default "rgba(0, 255, 159, 0.5)" }};
+  
+  --accent-light-rgba-01: {{ site.Params.theme.light.accentLightRGBA01 | default "rgba(0, 179, 110, 0.4)" }};
+  --accent-light-rgba-03: {{ site.Params.theme.light.accentLightRGBA03 | default "rgba(178, 255, 217, 0.3)" }};
+  
+  --accent-mid-rgba-05: {{ site.Params.theme.light.accentMidRGBA05 | default "rgba(0, 179, 110, 0.05)" }};
+  --accent-mid-rgba-01: {{ site.Params.theme.light.accentMidRGBA01 | default "rgba(0, 179, 110, 0.1)" }};
+  --accent-mid-rgba-02: {{ site.Params.theme.light.accentMidRGBA02 | default "rgba(0, 179, 110, 0.2)" }};
   /* Tag styling for light theme - lighter background, darker purple text */
-  --tag-bg: rgba(124, 58, 237, 0.1);
-  --tag-color: #6b21a8;
+  --tag-bg: {{ site.Params.theme.light.tagbg | default "rgba(0, 179, 110, 0.9)" }};
+  --tag-color: {{ site.Params.theme.light.tagcolor | default "#ffffcc" }};
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -158,16 +160,16 @@ body {
 }
 
 /* Light theme background */
-[data-theme="light"] {
-  --bg-deep: #ffffff; /* Override bg-deep for light theme */
-}
+/* [data-theme="light"] {
+  --bg-deep: #ffffff; 
+} */
 
 [data-theme="light"] body {
   background-color: #ffffff;
   /* Light theme radial gradient: subtle purple/lavender tint in center, fading to white at edges */
   background-image: radial-gradient(
     circle at center,
-    rgba(196, 133, 246, 0.2) 0%,
+    rgba(0, 179, 110, 0.05) 0%,
     rgba(243, 232, 255, 0.4) 40%,
     #ffffff 100%
   );

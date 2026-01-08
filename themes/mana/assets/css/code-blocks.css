@@ -7,8 +7,9 @@
 
 .code-block-copy {
   position: absolute;
-  top: 0.5rem;
-  right: calc(0.5rem + 95px + 0.5rem);
+  top: 0.3rem;
+  right: 0.1rem;
+  /* calc(0.1rem + 95px + 0.1rem); */
   z-index: 10;
   background: rgba(30, 30, 45, 0.9);
   backdrop-filter: blur(8px);
@@ -27,6 +28,28 @@
   font-family: var(--font-body);
   white-space: nowrap;
 }
+/* .code-block-title {
+  position: absolute;
+  top: 0.1rem;
+  right: calc(0.1rem + 80px + 0.1rem);
+  z-index: 10;
+  background: rgba(30, 30, 45, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+  white-space: nowrap;
+} */
 
 .code-block-copy:hover {
   background: var(--bg-tertiary);
@@ -129,6 +152,8 @@
 .code-block-content {
   transition: opacity var(--transition-base);
   overflow: visible;
+  font-size: .9rem;
+  padding-left:10px;
 }
 
 .code-block-wrapper.collapsed .code-block-content {
@@ -147,4 +172,67 @@
   height: 50px;
   background: linear-gradient(to bottom, transparent, var(--bg-primary));
   pointer-events: none;
+}
+
+/* Container: Uses Flex Column to stack Header on top of Code */
+.code-block-wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background-color: #24273a; /* Match your code block background */
+  border: 1px solid #444;
+}
+
+/* Header: Takes up its own space */
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: rgba(15,23,42,.8); /* Slightly lighter than code bg */
+  border-bottom: 1px solid #444;
+  min-height: 36px; /* Prevents collapse */
+  z-index: 10;
+}
+
+/* Title Styling */
+.code-block-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--tag-color);
+  font-weight: 600;
+}
+
+/* Copy Button */
+.code-block-copy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #a0a0a0;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.code-block-copy:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Content Area: Ensures code fills the rest */
+.code-block-content {
+  position: relative;
+  width: 100%;
+}
+
+/* Fix for pre margins causing gaps */
+.code-block-content pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
 }
